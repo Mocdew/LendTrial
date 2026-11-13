@@ -1,4 +1,4 @@
-# Export Can I borrow.ai scores for LimitRehearsal
+# Export Can I borrow.ai scores for LendTrial
 
 LimitRehearsal works with synthetic data in the browser. This optional script generates fictional applications, calls your local [Can I borrow.ai scorer](https://github.com/Mocdew/Can-I-Borrow#http-api), and exports a JSON file you can load into the demo. It uses only the Python standard library.
 
@@ -12,11 +12,11 @@ LimitRehearsal works with synthetic data in the browser. This optional script ge
 3. From the LimitRehearsal repo, run the exporter. Replace the version with the one you are serving.
 
    ```sh
-   python3 scripts/limit-rehearsal/export_scores.py /tmp/limit-rehearsal-scored.json \
+   python3 scripts/limit-rehearsal/export_scores.py /tmp/lendtrial-scored.json \
      --version 20260910T150046Z
    ```
 
-4. Load that JSON file into LimitRehearsal. Use `--rows`, `--seed`, `--model`, and `--base-url` to choose the cohort size, generator seed, model family, or loopback port.
+4. Load that JSON file into LendTrial. Use `--rows`, `--seed`, `--model`, and `--base-url` to choose the cohort size, generator seed, model family, or loopback port.
 
 The exporter checks `/api/contract`, checks the selected version with `/api/model-info`, and matches each `/api/predict-batch` score to its original application ID. It refuses partial results and version changes. The output includes the model name and version, the generator seed, the reference terms and a SHA-256 checksum of the scoring inputs.
 

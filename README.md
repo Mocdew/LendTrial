@@ -1,6 +1,6 @@
-# LimitRehearsal
+# LendTrial
 
-LimitRehearsal is a browser-based sandbox for testing repeat-loan limits on a simulated naira installment product. [Open the app](https://mocdew.github.io/LimitRehearsal/) or read the [portfolio case study](https://olumide-erinfolami.vercel.app/projects/limit-rehearsal).
+LendTrial is a browser-based sandbox for testing repeat-loan limits on a simulated naira installment product. [Open the app](https://mocdew.github.io/LimitRehearsal/) or read the [portfolio case study](https://olumide-erinfolami.vercel.app/projects/lendtrial).
 
 - **Before launch** replays the current and candidate caps on the same applications. It shows which offers change and exports the per-application decisions to CSV.
 - **After launch** simulates a randomized rollout and shows whether the candidate policy meets the first-payment pause rule.
