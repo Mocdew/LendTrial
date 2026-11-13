@@ -1,0 +1,81 @@
+:root {
+	--color-bg: #f6f6f3;
+	--color-panel: #ffffff;
+	--color-hairline: #e6e5df;
+	--color-fg: #0b0b0b;
+	--color-muted: #52514e;
+	--color-dim: #706e69;
+	--color-accent: #1c5cab;
+	--font-sans: 'Geist Variable', system-ui, sans-serif;
+	--font-mono: 'Geist Mono Variable', ui-monospace, monospace;
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-bg: #121519;
+		--color-panel: #1a1e23;
+		--color-hairline: #363c44;
+		--color-fg: #eef1f5;
+		--color-muted: #b6c0cc;
+		--color-dim: #a1acb8;
+		--color-accent: #9ec9ff;
+		color-scheme: dark;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+dl,
+dd {
+	margin: 0;
+}
+
+body {
+	background: var(--color-bg);
+	color: var(--color-fg);
+	font-family: var(--font-sans);
+	line-height: 1.5;
+}
+
+button,
+input,
+select {
+	color: inherit;
+	font: inherit;
+}
+
+button {
+	padding: 0;
+	border: 0;
+	background: transparent;
+}
+
+a {
+	color: var(--color-accent);
+	text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 3px;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
