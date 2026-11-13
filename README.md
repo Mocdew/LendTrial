@@ -1,10 +1,10 @@
-# LimitRehearsal
+# LendTrial
 
-LimitRehearsal is a browser-based sandbox for testing repeat-loan limits on a simulated naira installment product. [Open the app](https://mocdew.github.io/LimitRehearsal/) or read the [portfolio case study](https://olumide-erinfolami.vercel.app/projects/limit-rehearsal).
+LendTrial is a browser-based sandbox for testing repeat-loan limits on a simulated naira installment product. [Open the app](https://mocdew.github.io/LendTrial/) or read the [portfolio case study](https://olumide-erinfolami.vercel.app/projects/lendtrial).
 
 - **Before launch** replays the current and candidate caps on the same applications. It shows which offers change and exports the per-application decisions to CSV.
 - **After launch** simulates a randomized rollout and shows whether the candidate policy meets the first-payment pause rule.
-- **Load Can I borrow.ai scores** opens a bundled sample or imports a JSON score export from your device. The [optional Python exporter](scripts/limit-rehearsal/README.md) can score fictional applications against a pinned local model.
+- **Load Can I borrow.ai scores** opens a bundled sample or imports a JSON score export from your device. The [optional Python exporter](scripts/lendtrial/README.md) can score fictional applications against a pinned local model.
 
 The app starts with a synthetic cohort. The scored sample also uses fictional applications, and repayment events are simulated for all cohorts. Imported score files are processed in the browser.
 
@@ -27,6 +27,6 @@ pnpm test:e2e
 pnpm build
 ```
 
-Set `PW_CHANNEL=chrome` to run the browser tests with an installed Chrome instead of Playwright's Chromium. The static build is written to `build/`. Set `BASE_PATH=/LimitRehearsal` when building or previewing under a subpath.
+Set `PW_CHANNEL=chrome` to run the browser tests with an installed Chrome instead of Playwright's Chromium. The static build is written to `build/`. Set `BASE_PATH=/LendTrial` when building or previewing under a subpath.
 
 GitHub Actions builds and deploys the site on pushes to `main`. The repository's GitHub Pages publishing source is GitHub Actions.

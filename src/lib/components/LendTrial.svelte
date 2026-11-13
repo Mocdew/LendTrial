@@ -10,7 +10,7 @@
 		simulateRollout,
 		type Application,
 		type RolloutConfig
-	} from '$lib/limit-rehearsal/engine';
+	} from '$lib/lendtrial/engine';
 
 	let {
 		applications,
@@ -88,7 +88,7 @@
 		);
 		const anchor = document.createElement('a');
 		anchor.href = url;
-		anchor.download = `limit-rehearsal-${candidateCap}.csv`;
+		anchor.download = `lendtrial-${candidateCap}.csv`;
 		document.body.append(anchor);
 		anchor.click();
 		anchor.remove();
@@ -96,12 +96,12 @@
 	}
 </script>
 
-<div class="console" role="region" aria-label="LimitRehearsal console">
+<div class="console" role="region" aria-label="LendTrial console">
 	<div class="console-header">
 		<div class="identity">
-			<span class="monogram" aria-hidden="true">LR</span>
+			<span class="monogram" aria-hidden="true">LT</span>
 			<div>
-				<div class="wordmark">LimitRehearsal</div>
+				<div class="wordmark">LendTrial</div>
 				<div class="console-label">Loan policy sandbox</div>
 			</div>
 		</div>
@@ -152,11 +152,11 @@
 				</div>
 				<div class="adjust-setting">
 					<div class="field-line">
-						<label for="limit-rehearsal-cap" class="field-label">Candidate cap</label>
+						<label for="lendtrial-cap" class="field-label">Candidate cap</label>
 						<span class="value">{currency.format(candidateCap)}</span>
 					</div>
 					<input
-						id="limit-rehearsal-cap"
+						id="lendtrial-cap"
 						type="range"
 						min={DEFAULT_POLICY.currentCap}
 						max={maximumCap}
@@ -291,19 +291,19 @@
 
 			<div class="compare-controls rollout-controls">
 				<div class="scenario-setting">
-					<label class="field-label" for="limit-rehearsal-scenario">Repayment scenario</label>
-					<select id="limit-rehearsal-scenario" bind:value={scenario}>
+					<label class="field-label" for="lendtrial-scenario">Repayment scenario</label>
+					<select id="lendtrial-scenario" bind:value={scenario}>
 						<option value="neutral">No added repayment stress</option>
 						<option value="adverse">Higher repayment stress</option>
 					</select>
 				</div>
 				<div class="adjust-setting">
 					<div class="field-line">
-						<label for="limit-rehearsal-day" class="field-label">Days into rollout</label>
+						<label for="lendtrial-day" class="field-label">Days into rollout</label>
 						<span class="value">Day {checkpointDay}</span>
 					</div>
 					<input
-						id="limit-rehearsal-day"
+						id="lendtrial-day"
 						type="range"
 						min={0}
 						max={MAX_CHECKPOINT_DAY}
@@ -316,10 +316,10 @@
 					</div>
 				</div>
 				<div class="pause-setting">
-					<label class="field-label" for="limit-rehearsal-margin"
+					<label class="field-label" for="lendtrial-margin"
 						>Allowed increase over the control miss rate</label
 					>
-					<select id="limit-rehearsal-margin" bind:value={pauseMarginPoints}>
+					<select id="lendtrial-margin" bind:value={pauseMarginPoints}>
 						{#each pauseLimits as limit (limit)}
 							<option value={limit}
 								>{limit} {limit === 1 ? 'percentage point' : 'percentage points'}</option

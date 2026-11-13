@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
-	import LimitRehearsal from '$lib/components/LimitRehearsal.svelte';
+	import LendTrial from '$lib/components/LendTrial.svelte';
 	import {
 		MAX_SCORE_FILE_BYTES,
 		readScoreExport,
 		type ScoreExport
-	} from '$lib/limit-rehearsal/import';
+	} from '$lib/lendtrial/import';
 
 	let scoreExport = $state<ScoreExport | null>(null);
 	let importMessage = $state('');
@@ -44,7 +44,7 @@
 		importFailed = false;
 		importing = true;
 		try {
-			const response = await fetch(asset('/limit-rehearsal-scores.json'));
+			const response = await fetch(asset('/lendtrial-scores.json'));
 			if (!response.ok) throw new Error('The scored sample is temporarily unavailable.');
 			loadScores(readScoreExport(await response.text()), ' from the sample');
 		} catch (error) {
@@ -64,7 +64,7 @@
 </script>
 
 <svelte:head>
-	<title>LimitRehearsal</title>
+	<title>LendTrial</title>
 	<meta
 		name="description"
 		content="Replay loan caps on the same applications and simulate a controlled rollout."
@@ -74,15 +74,15 @@
 <main>
 	<header>
 		<nav aria-label="Project links">
-			<a href="https://github.com/Mocdew/LimitRehearsal">GitHub</a>
-			<a href="https://olumide-erinfolami.vercel.app/projects/limit-rehearsal">Case study</a>
+			<a href="https://github.com/Mocdew/LendTrial">GitHub</a>
+			<a href="https://olumide-erinfolami.vercel.app/projects/lendtrial">Case study</a>
 		</nav>
-		<h1>LimitRehearsal</h1>
+		<h1>LendTrial</h1>
 		<p>Compare two loan caps on the same applications, then simulate a controlled rollout.</p>
 	</header>
 
 	{#key revision}
-		<LimitRehearsal
+		<LendTrial
 			applications={scoreExport?.applications}
 			model={scoreExport?.model}
 			scoreSource={scoreExport
@@ -95,7 +95,7 @@
 		<p>
 			Try a sample of synthetic applications scored by a pinned LightGBM artifact, or create a
 			file with the <a
-				href="https://github.com/Mocdew/LimitRehearsal/tree/main/scripts/limit-rehearsal">local Python exporter</a
+				href="https://github.com/Mocdew/LendTrial/tree/main/scripts/lendtrial">local Python exporter</a
 			>. The browser reads imported files on your device.
 		</p>
 		<div class="score-controls">

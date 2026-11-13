@@ -1,6 +1,6 @@
-# Export Can I borrow.ai scores for LimitRehearsal
+# Export Can I borrow.ai scores for LendTrial
 
-LimitRehearsal works with synthetic data in the browser. This optional script generates fictional applications, calls your local [Can I borrow.ai scorer](https://github.com/Mocdew/Can-I-Borrow#http-api), and exports a JSON file you can load into the demo. It uses only the Python standard library.
+LendTrial works with synthetic data in the browser. This optional script generates fictional applications, calls your local [Can I borrow.ai scorer](https://github.com/Mocdew/Can-I-Borrow#http-api), and exports a JSON file you can load into the demo. It uses only the Python standard library.
 
 1. In your Can I borrow.ai checkout, install its pinned dependencies and use your saved artifact. To rebuild, set `CANBORROW_DATA` to the original `Loan_default.csv` and run the scorer's [training command](https://github.com/Mocdew/Can-I-Borrow#train-and-promote-a-model-version). Its [model card](https://github.com/Mocdew/Can-I-Borrow/blob/main/MODEL_CARD.md) lists the original data checksum.
 2. Set `CANBORROW_MODEL_VERSION` to the exact artifact directory name and start the scorer with `python run_app.py`. The example below uses the original model card's version. Use the new version if you retrained.
@@ -9,14 +9,14 @@ LimitRehearsal works with synthetic data in the browser. This optional script ge
    CANBORROW_MODEL_VERSION=20260910T150046Z python run_app.py
    ```
 
-3. From the LimitRehearsal repo, run the exporter. Replace the version with the one you are serving.
+3. From the LendTrial repo, run the exporter. Replace the version with the one you are serving.
 
    ```sh
-   python3 scripts/limit-rehearsal/export_scores.py /tmp/limit-rehearsal-scored.json \
+   python3 scripts/lendtrial/export_scores.py /tmp/lendtrial-scored.json \
      --version 20260910T150046Z
    ```
 
-4. Load that JSON file into LimitRehearsal. Use `--rows`, `--seed`, `--model`, and `--base-url` to choose the cohort size, generator seed, model family, or loopback port.
+4. Load that JSON file into LendTrial. Use `--rows`, `--seed`, `--model`, and `--base-url` to choose the cohort size, generator seed, model family, or loopback port.
 
 The exporter checks `/api/contract`, checks the selected version with `/api/model-info`, and matches each `/api/predict-batch` score to its original application ID. It refuses partial results and version changes. The output includes the model name and version, the generator seed, the reference terms and a SHA-256 checksum of the scoring inputs.
 
