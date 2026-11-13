@@ -420,8 +420,8 @@
 <style>
 	.console {
 		--tint: color-mix(in srgb, var(--color-accent) 8%, var(--color-panel));
-		--warning: #a2382f;
-		--good: #19694e;
+		--warning: #f3a49e;
+		--good: #8bd3b5;
 		overflow: hidden;
 		border: 1px solid var(--color-hairline);
 		border-radius: 0.65rem;
@@ -429,13 +429,6 @@
 		color: var(--color-fg);
 		font-family: var(--font-sans);
 		font-variant-numeric: tabular-nums;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		.console {
-			--warning: #f3a49e;
-			--good: #8bd3b5;
-		}
 	}
 
 	.console-header,

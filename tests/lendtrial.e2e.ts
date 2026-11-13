@@ -4,9 +4,11 @@ import { expect, test } from '@playwright/test';
 const path = `${process.env.BASE_PATH || ''}/`;
 
 test('replays a cap, exports the audit and inspects the rollout', async ({ page }) => {
+	await page.emulateMedia({ colorScheme: 'light' });
 	await page.goto(path);
 	await expect(page).toHaveTitle('LendTrial');
 	await expect(page.getByRole('heading', { name: 'LendTrial', exact: true })).toBeVisible();
+	await expect(page.locator('html')).toHaveCSS('color-scheme', 'dark');
 	const cap = page.getByRole('slider', { name: 'Candidate cap' });
 	await cap.press('Home');
 	await expect(page.getByText('No offers change at this cap', { exact: false })).toBeVisible();
