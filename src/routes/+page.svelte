@@ -64,7 +64,7 @@
 </script>
 
 <svelte:head>
-	<title>LimitRehearsal</title>
+	<title>LendTrial</title>
 	<meta
 		name="description"
 		content="Replay loan caps on the same applications and simulate a controlled rollout."
@@ -75,10 +75,10 @@
 	<header>
 		<nav aria-label="Project links">
 			<a href="https://github.com/Mocdew/LimitRehearsal">GitHub</a>
-			<a href="https://olumide-erinfolami.vercel.app/projects/limit-rehearsal">Case study</a>
+			<a href="https://olumide-erinfolami.vercel.app/projects/lendtrial">Case study</a>
 		</nav>
-		<h1>LimitRehearsal</h1>
-		<p>Compare two loan caps on the same applications, then simulate a controlled rollout.</p>
+		<h1>LendTrial</h1>
+		<p>Test loan policy changes before rollout.</p>
 	</header>
 
 	{#key revision}

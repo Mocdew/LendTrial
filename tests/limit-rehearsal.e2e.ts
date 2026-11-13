@@ -5,6 +5,8 @@ const path = `${process.env.BASE_PATH || ''}/`;
 
 test('replays a cap, exports the audit and inspects the rollout', async ({ page }) => {
 	await page.goto(path);
+	await expect(page).toHaveTitle('LendTrial');
+	await expect(page.getByRole('heading', { level: 1, name: 'LendTrial' })).toBeVisible();
 	const cap = page.getByRole('slider', { name: 'Candidate cap' });
 	await cap.press('Home');
 	await expect(page.getByText('No offers change at this cap', { exact: false })).toBeVisible();
@@ -14,6 +16,7 @@ test('replays a cap, exports the audit and inspects the rollout', async ({ page 
 	const downloaded = page.waitForEvent('download');
 	await page.getByRole('button', { name: 'Download CSV' }).click();
 	const download = await downloaded;
+	expect(download.suggestedFilename()).toBe('lendtrial-100000.csv');
 	const csv = await readFile((await download.path())!, 'utf8');
 	expect(csv.split('\r\n')[0]).toContain('candidate_offer_naira');
 	expect(csv).toContain('"synthetic-demo"');

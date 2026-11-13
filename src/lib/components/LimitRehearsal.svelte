@@ -88,7 +88,7 @@
 		);
 		const anchor = document.createElement('a');
 		anchor.href = url;
-		anchor.download = `limit-rehearsal-${candidateCap}.csv`;
+		anchor.download = `lendtrial-${candidateCap}.csv`;
 		document.body.append(anchor);
 		anchor.click();
 		anchor.remove();
@@ -96,12 +96,12 @@
 	}
 </script>
 
-<div class="console" role="region" aria-label="LimitRehearsal console">
+<div class="console" role="region" aria-label="LendTrial console">
 	<div class="console-header">
 		<div class="identity">
-			<span class="monogram" aria-hidden="true">LR</span>
+			<span class="monogram" aria-hidden="true">LT</span>
 			<div>
-				<div class="wordmark">LimitRehearsal</div>
+				<div class="wordmark">LendTrial</div>
 				<div class="console-label">Loan policy sandbox</div>
 			</div>
 		</div>
