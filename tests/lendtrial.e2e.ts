@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
 
-const path = `${process.env.BASE_PATH || ''}/`;
+const path = `${process.env.BASE_PATH || ''}/demo/`;
 
 test('replays a cap, exports the audit and inspects the rollout', async ({ page }) => {
-	await page.goto(path);
-	await expect(page).toHaveTitle('LendTrial');
+	await page.goto(`${process.env.BASE_PATH || ''}/`);
+	await expect(page).toHaveTitle('LendTrial demo');
 	await expect(page.getByRole('heading', { name: 'LendTrial', exact: true })).toBeVisible();
 	const cap = page.getByRole('slider', { name: 'Candidate cap' });
 	await cap.press('Home');

@@ -2,5 +2,11 @@
 node_modules/
 .svelte-kit/
 build/
+build-server/
+data/
+.env
+.env.*
+!.env.example
+__pycache__/
 playwright-report/
 test-results/
