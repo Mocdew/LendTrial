@@ -78,7 +78,7 @@
 			<a href="https://olumide-erinfolami.vercel.app/projects/lendtrial">Case study</a>
 		</nav>
 		<h1>LendTrial</h1>
-		<p>Compare two loan caps on the same applications, then simulate a controlled rollout.</p>
+		<p>Test loan policy changes before rollout.</p>
 	</header>
 
 	{#key revision}

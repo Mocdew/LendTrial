@@ -5,6 +5,7 @@ const path = `${process.env.BASE_PATH || ''}/`;
 
 test('replays a cap, exports the audit and inspects the rollout', async ({ page }) => {
 	await page.goto(path);
+	await expect(page).toHaveTitle('LendTrial');
 	await expect(page.getByRole('heading', { name: 'LendTrial', exact: true })).toBeVisible();
 	const cap = page.getByRole('slider', { name: 'Candidate cap' });
 	await cap.press('Home');
